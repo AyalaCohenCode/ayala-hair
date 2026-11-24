@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>קביעת תור – איילה</title>
+  <meta name="description" content="קביעת תור להחלקה אורגנית משקמת, שיקום שיער ושורשים אצל איילה.">
+  <meta property="og:title" content="קביעת תור – איילה">
+  <meta property="og:description" content="קביעת תור להחלקה אורגנית משקמת, שיקום שיער ושורשים אצל איילה.">
+  <meta property="og:image" content="assets/logo-poster.jpg">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700&family=Assistant:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ===== תפריט עליון ===== -->
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="איילה – לדף הבית"><img src="assets/logo.png" alt="איילה" width="147" height="46"></a>
+    <nav class="nav" aria-label="תפריט ראשי">
+      <a href="index.html">בית</a>
+      <a href="services.html">החלקות</a>
+      <a href="products.html">מוצרים</a>
+      <a href="contact.html">צור קשר</a>
+      <a class="nav-cta" href="booking.html" aria-current="page">קביעת תור</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">קביעת תור</p>
+    <h1>בוחרים טיפול, יום ושעה</h1>
+    <p class="lead">התור נשמר מיד, ואני מקבלת עליו הודעה.</p>
+    <hr class="gold-line">
+  </div>
+</section>
+
+<section class="band" style="padding-top:8px">
+  <div class="book-wrap">
+
+    <!-- אם השרת עוד לא מחובר: מציגים וואטסאפ -->
+    <div class="notice" id="no-api" hidden>
+      קביעת תור באתר תיפתח בקרוב. בינתיים אפשר לקבוע בוואטסאפ:
+      <a href="#" id="no-api-wa">לשליחת הודעה</a>
+    </div>
+
+    <div id="booking-form">
+      <div class="step">
+        <h2><span class="num">1.</span>מה תרצי לעשות?</h2>
+        <div class="chips" id="treatments"></div>
+      </div>
+
+      <div class="step" style="margin-top:30px">
+        <h2><span class="num">2.</span>בחרי יום</h2>
+        <div class="loading" id="loading"><span class="spinner" aria-hidden="true"></span><span>טוענת שעות פנויות… בפעם הראשונה זה יכול לקחת עד דקה.</span></div>
+        <div class="notice notice--error" id="load-error" role="alert" hidden></div>
+        <p class="notice" id="no-slots" hidden>כרגע אין תורים פנויים. אפשר לשלוח לי הודעה בוואטסאפ, ואמצא לך זמן.</p>
+        <div class="chips" id="days"></div>
+      </div>
+
+      <div class="step" id="step-time" style="margin-top:30px" hidden>
+        <h2><span class="num">3.</span>בחרי שעה</h2>
+        <div class="times" id="times"></div>
+      </div>
+
+      <form class="panel" id="details" style="margin-top:30px" hidden novalidate>
+        <h2 style="font-size:24px"><span class="num" style="color:var(--gold);margin-left:6px">4.</span>הפרטים שלך</h2>
+        <p style="margin:0;color:var(--muted)" id="summary"></p>
+        <label class="field" for="b-name">שם
+          <input id="b-name" type="text" autocomplete="name" required maxlength="80">
+        </label>
+        <label class="field" for="b-phone">טלפון
+          <input id="b-phone" type="tel" dir="ltr" autocomplete="tel" required maxlength="20" style="text-align:right">
+        </label>
+        <div class="notice notice--error" id="submit-error" role="alert" hidden></div>
+        <button class="btn btn--main" type="submit" id="submit">אישור התור</button>
+      </form>
+    </div>
+
+    <!-- אחרי שהתור נקבע -->
+    <div class="panel done" id="done" hidden tabindex="-1">
+      <h2>התור נקבע!</h2>
+      <dl class="kv" id="done-details"></dl>
+      <div id="bank" hidden>
+        <hr class="gold-line" style="margin:8px 0 14px">
+        <h3 style="margin-bottom:10px">תשלום בהעברה בנקאית</h3>
+        <dl class="kv" id="bank-details"></dl>
+        <p style="margin:14px 0 0;color:var(--muted)">אחרי ההעברה, שלחי לי צילום של האישור בוואטסאפ.</p>
+      </div>
+      <div class="btns">
+        <a class="btn btn--main" id="done-wa" href="#" target="_blank" rel="noopener">שליחת הודעה בוואטסאפ</a>
+        <a class="btn btn--outline" href="booking.html">לקביעת תור נוסף</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<!-- ===== תחתית ===== -->
+<footer class="site-footer">
+  <div class="wrap">
+    <span class="brand"><img src="assets/logo.png" alt="איילה" width="96" height="30"><span>היופי שלך. המקצועיות שלי</span></span>
+    <span>הנרי מורגנטאו 11, ירושלים · <a href="tel:+972548532969" dir="ltr">054-853-2969</a></span>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/booking.js"></script>
+</body>
+</html>
