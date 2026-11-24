@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ניהול תורים – איילה</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="מסך ניהול תורים">
+  <meta property="og:title" content="ניהול תורים – איילה">
+  <meta property="og:description" content="מסך ניהול תורים">
+  <meta property="og:image" content="assets/logo-poster.jpg">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700&family=Assistant:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="איילה – לדף הבית"><img src="assets/logo.png" alt="איילה" width="147" height="46"></a>
+    <nav class="nav" aria-label="ניהול">
+      <span style="color:var(--muted)">ניהול תורים</span>
+      <button class="btn btn--outline btn--small" type="button" id="logout" hidden>יציאה</button>
+    </nav>
+  </div>
+</header>
+
+<main class="band">
+  <div class="book-wrap" style="max-width:900px">
+
+    <!-- כניסה -->
+    <form class="panel" id="login" style="max-width:420px" novalidate>
+      <h1 style="font-size:32px">כניסת מנהלת</h1>
+      <label class="field" for="pw">סיסמה
+        <input id="pw" type="password" autocomplete="current-password" required>
+      </label>
+      <div class="notice notice--error" id="login-error" role="alert" hidden></div>
+      <button class="btn btn--main" type="submit" id="login-btn">כניסה</button>
+    </form>
+
+    <!-- מסך ניהול -->
+    <div id="panel" hidden style="display:flex;flex-direction:column;gap:28px">
+      <h1>ניהול תורים</h1>
+      <div class="stats">
+        <div class="stat"><b id="st-free">0</b><span>שעות פנויות</span></div>
+        <div class="stat"><b id="st-booked">0</b><span>תורים שנקבעו</span></div>
+        <div class="stat"><b id="st-wait">0</b><span>ממתינים לתשלום</span></div>
+      </div>
+
+      <form class="panel" id="add-form" novalidate>
+        <h2 style="font-size:26px">הוספת שעות פנויות</h2>
+        <label class="field" for="add-day" style="max-width:260px">תאריך
+          <input id="add-day" type="date" required>
+        </label>
+        <div>
+          <p style="margin:0 0 8px;font-weight:600">שעות (אפשר לבחור כמה)</p>
+          <div class="chips" id="quick-times"></div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:end">
+          <label class="field" for="add-custom">שעה אחרת
+            <input id="add-custom" type="time" step="900">
+          </label>
+          <button class="btn btn--outline btn--small" type="button" id="add-custom-btn">הוספה לרשימה</button>
+        </div>
+        <div class="notice" id="add-msg" role="status" hidden></div>
+        <button class="btn btn--main" type="submit" style="align-self:flex-start">שמירת השעות</button>
+      </form>
+
+      <section>
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:10px">
+          <h2 style="font-size:26px">כל השעות</h2>
+          <button class="btn btn--outline btn--small" type="button" id="refresh">רענון</button>
+        </div>
+        <div class="notice notice--error" id="list-error" role="alert" hidden></div>
+        <p class="notice" id="empty" hidden>עוד לא הוספת שעות.</p>
+        <div id="list"></div>
+      </section>
+    </div>
+
+  </div>
+</main>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

@@ -171,3 +171,57 @@ h3 { font-size: 24px; line-height: 1.3; }
 @media (prefers-reduced-motion: reduce) {
   * { scroll-behavior: auto !important; }
 }
+
+/* ===== קביעת תור וניהול ===== */
+.book-wrap { max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 30px; }
+.book-wrap > * { max-width: 760px; width: 100%; }
+.step h2 { font-size: 24px; margin-bottom: 14px; }
+.step h2 .num { color: var(--gold); margin-left: 6px; }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.chip {
+  font: 400 16px/1.2 var(--sans); color: var(--ink); background: var(--card);
+  border: 1px solid var(--line); border-radius: 2px; padding: 12px 18px; min-height: 48px; cursor: pointer;
+}
+.chip:hover { border-color: var(--gold); }
+.chip[aria-pressed="true"] { background: var(--brown); border-color: var(--brown); color: #fff; font-weight: 600; }
+.chip small { display: block; font-size: 13px; opacity: .85; }
+.times { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 10px; }
+.times .chip { text-align: center; }
+.panel { background: var(--card); border: 1px solid var(--line); padding: 26px; display: flex; flex-direction: column; gap: 14px; }
+.field { display: flex; flex-direction: column; gap: 6px; font-weight: 600; }
+.field input, .field select {
+  font: 400 16px/1.4 var(--sans); padding: 12px; border: 1px solid #cdb79b; border-radius: 2px;
+  min-height: 48px; background: #fff; color: var(--ink);
+}
+.notice { padding: 14px 18px; border: 1px solid var(--line); background: var(--card); color: var(--muted); }
+.notice--error { border-color: #e2b4ae; background: #fbefed; color: #8f2a1e; }
+.notice--ok { border-color: var(--gold); background: var(--card); color: var(--ink); }
+.loading { display: flex; align-items: center; gap: 12px; color: var(--muted); }
+.spinner { width: 22px; height: 22px; border: 2px solid var(--line); border-top-color: var(--gold); border-radius: 50%; animation: spin 0.9s linear infinite; flex: none; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .spinner { animation-duration: 3s; } }
+.done h2 { color: var(--gold); }
+.kv { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 8px 20px; align-items: baseline; }
+.kv dt { color: var(--muted); }
+.kv dd { margin: 0; font-weight: 600; }
+[hidden] { display: none !important; }
+
+/* מסך מנהלת */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+.stat { background: var(--card); border: 1px solid var(--line); padding: 16px 20px; }
+.stat b { display: block; font-family: var(--serif); font-size: 32px; font-weight: 500; line-height: 1.2; }
+.stat span { color: var(--muted); }
+.day-group h3 { font-size: 22px; margin: 18px 0 8px; }
+.slot-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; padding: 14px 18px; background: var(--card); border: 1px solid var(--line); border-top: 0; }
+.day-group .slot-row:first-of-type { border-top: 1px solid var(--line); }
+.slot-row .who { display: flex; flex-direction: column; }
+.slot-row .time { font-family: var(--serif); font-size: 22px; }
+.slot-row .actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.badge { font-size: 14px; padding: 3px 10px; border-radius: 2px; white-space: nowrap; }
+.badge--free { background: #e6f1df; color: #2f5a22; }
+.badge--wait { background: #fbefd5; color: #7a4d12; }
+.badge--paid { background: var(--brown); color: #fff; }
+.btn--small { min-height: 40px; padding: 8px 14px; font-size: 15px; }
+.btn--danger { background: transparent; color: #9b2c20; border: 1px solid #e2b4ae; }
+.btn--danger:hover { background: #fbefed; color: #9b2c20; }
+.nav .nav-cta[aria-current="page"] { color: #fff; border-bottom-color: transparent; }
